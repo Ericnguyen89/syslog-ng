@@ -43,4 +43,9 @@ case "$os" in
         ;;
 esac
 
+
+mv /etc/syslog-ng/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf.bak
+sudo wget -P /etc/syslog-ng/ https://raw.githubusercontent.com/Ericnguyen89/syslog-ng/main/syslog-ng.conf
+
 echo "syslog-ng installation completed!"
+timeout 30s tail -f /var/log/flowclick.log
